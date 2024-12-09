@@ -36,7 +36,7 @@ public class CadastroAlunoController {
             String objetivo = txtObjetivo.getText();
 
             Aluno aluno = new Aluno(nome, idade, peso, altura, objetivo);
-            academia.cadastrarAluno(aluno);
+            // academia.cadastrarAluno(aluno);
 
             System.out.println("Aluno cadastrado com sucesso!");
         } catch (NumberFormatException ex) {
