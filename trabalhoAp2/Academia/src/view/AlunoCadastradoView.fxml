@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="116.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaRespostaController">
+    <Button layoutX="82.0" layoutY="65.0" mnemonicParsing="false" onAction="#confirmar" prefHeight="26.0" prefWidth="86.0" text="Confirmar" />
+    <Text layoutX="55.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aluno já cadastrado">
+        <font>
+            <Font name="System Bold" size="15.0" />
+        </font>
+    </Text>
+</AnchorPane>

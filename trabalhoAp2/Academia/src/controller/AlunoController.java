@@ -52,8 +52,10 @@ public class AlunoController extends MainController {
                     return true;
                 }
 
+                //String para comparação
                 String lowerCaseFilter = newValue.toLowerCase();
 
+                //Mostra todos os itens de pesquisa que incluem a String de comparação
                 if (aluno.getNome().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                     return true;
                 } else if (aluno.getPlano().toLowerCase().indexOf(lowerCaseFilter) != -1) {

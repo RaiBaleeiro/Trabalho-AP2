@@ -15,9 +15,9 @@ import java.io.IOException;
 import model.Aluno;
 import model.IAluno;
 
-public class RepositorioAluno implements IAluno{
+public class RepositorioAluno implements IAluno {
     private final String arquivo = "aluno.ser";
-    private final String arquivoIdAluno = "idDisciplina.dat";
+    private final String arquivoIdAluno = "idAluno.dat";
 
     @Override
     public List<Aluno> getAllAlunos() {
@@ -51,19 +51,19 @@ public class RepositorioAluno implements IAluno{
             ObjectOutputStream gravarObj = new ObjectOutputStream(fluxo);
             gravarObj.writeObject(aluno);
             gravarObj.close();
-        } catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.out.println("Erro no cadastro do aluno");
         }
-        catch (IOException ex){
+        catch (IOException ex) {
             System.out.println ("Erro no cadastro do aluno");
         }
     }
 
-    private int controleIdAluno(){
+    private int controleIdAluno() {
         File arqId = new File(arquivoIdAluno);
-        int id =0;
+        int id = 0;
         try { 
-            if (!arqId.exists()){
+            if (!arqId.exists()) {
                 arqId.createNewFile();
                 atualizaId(id,arqId);
             }
@@ -76,7 +76,7 @@ public class RepositorioAluno implements IAluno{
             System.out.println ("Erro id disciplina não encontrado");
         } catch (IOException ex) {
             System.out.println ("Erro arquivo idDisciplina");
-        }   
+        }
         return id;
     }
 
