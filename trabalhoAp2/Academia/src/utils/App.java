@@ -1,12 +1,11 @@
 package utils;
 
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 /**
  * JavaFX App
@@ -15,7 +14,8 @@ public class App extends Application {
 
     public void start(Stage stage) {
         try {
-            Parent root = FXMLLoader.load (getClass().getResource("/view/MainView.fxml"));
+            //Setting Background
+            Parent root = FXMLLoader.load(getClass().getResource("/view/MainView.fxml"));
             Scene scene = new Scene(root);
             
             stage.setTitle("Acadêmico");
