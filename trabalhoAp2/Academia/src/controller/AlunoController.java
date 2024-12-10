@@ -46,8 +46,8 @@ public class AlunoController extends MainController {
 
         textFieldPesquisarAluno.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(aluno -> {
+                
                 //Se o filtro estiver vazio mostra todo mundo
-
                 if (newValue == null || newValue.isEmpty()) {
                     return true;
                 }

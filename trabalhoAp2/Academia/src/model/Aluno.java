@@ -31,10 +31,6 @@ public class Aluno implements Serializable {
         this.cpf = cpf;
     }
 
-    public double calcularIMC() {
-        return peso / (altura * altura);
-    }
-
     // Getters e Setters
 
     public int getId() {

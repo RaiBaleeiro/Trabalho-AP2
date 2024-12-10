@@ -9,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import model.Aluno;
 
 public class CadastroController extends MainController {
@@ -32,17 +31,12 @@ public class CadastroController extends MainController {
     @FXML
     private Label labelStatusCadastroAluno;
 
-    private Stage dialogStage;
-    private RepositorioAluno repositorioAluno = new RepositorioAluno(); 
+    private RepositorioAluno repositorioAluno = new RepositorioAluno();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         textFieldPlanoAluno.getItems().addAll("Básico", "Black");
         limparCampos();
-    }
-
-    public void setDialogStage (Stage dialogStage) {
-        this.dialogStage = dialogStage;
     }
 
     private void limparCampos() {
@@ -58,6 +52,7 @@ public class CadastroController extends MainController {
 
     @FXML
     private void handleCadastrarAluno(ActionEvent event) {
+        //Verifica se todos os campos foram preenchidos
         if (!textFieldNomeAluno.getText().isEmpty() && !textFieldIdadeAluno.getText().isEmpty()
                 && !textFieldPesoAluno.getText().isEmpty() && !textFieldAlturaAluno.getText().isEmpty()
                 && !textFieldCpfAluno.getText().isEmpty()) {
@@ -73,10 +68,5 @@ public class CadastroController extends MainController {
             textFieldNomeAluno.requestFocus();
         }
         limparCampos();
-    }
-
-    @FXML
-    private void handleCancelarCadastroAluno(ActionEvent event) {
-        this.dialogStage.close();
     }
 }
