@@ -33,6 +33,8 @@ public class CadastroController extends MainController {
     @FXML
     private ChoiceBox<String> textFieldPlanoAluno;
     @FXML
+    private ChoiceBox<String> textFieldNivelAluno;
+    @FXML
     private TextField textFieldCpfAluno;
     @FXML
     private Button buttonCadastarAluno;
@@ -46,6 +48,7 @@ public class CadastroController extends MainController {
     public void initialize(URL url, ResourceBundle rb) {
         alunos.addAll(repositorioAluno.getAllAlunos());
         textFieldPlanoAluno.getItems().addAll("Básico", "Black");
+        textFieldNivelAluno.getItems().addAll("Iniciante", "Avançado");
         limparCampos();
     }
 
@@ -56,11 +59,12 @@ public class CadastroController extends MainController {
         textFieldPesoAluno.setText("");
         textFieldAlturaAluno.setText("");
         textFieldPlanoAluno.setValue("Básico");
+        textFieldNivelAluno.setValue("Iniciante");
         textFieldCpfAluno.setText("");
         textFieldNomeAluno.requestFocus();
     }
 
-    private void popup(String fxml, String msg) {
+    public void popup(String fxml, String msg) {
         try {
             // Carrega o arquivo fxml e cria um novo stage para a janela popup.
             FXMLLoader loader = new FXMLLoader();
@@ -75,6 +79,7 @@ public class CadastroController extends MainController {
             dialogStage.setScene(scene);
             TelaRespostaController controller = loader.getController();
             controller.setDialogStage(dialogStage);
+            dialogStage.setResizable(false);
             dialogStage.showAndWait();
         } catch (IOException ex) {
             Logger.getLogger(CadastroController.class.getName()).log(Level.SEVERE, msg, ex);
@@ -94,6 +99,7 @@ public class CadastroController extends MainController {
             double peso = Double.parseDouble(textFieldPesoAluno.getText());
             double altura = Double.parseDouble(textFieldAlturaAluno.getText());
             String plano = textFieldPlanoAluno.getValue().toString();
+            String nivel = textFieldNivelAluno.getValue().toString().toUpperCase();
             String cpf = textFieldCpfAluno.getText();
 
             //Verifica se existe um aluno cadastrado com o cpf informado
@@ -107,7 +113,7 @@ public class CadastroController extends MainController {
 
             //Cadastra o novo aluno e atualiza, salva no arquivo e atualiza a lista local
             if (!alunoCadastrado) {
-                repositorioAluno.createAluno(new Aluno (nome, idade, peso, altura, plano, cpf));
+                repositorioAluno.createAluno(new Aluno (nome, idade, peso, altura, plano, nivel, cpf));
                 alunos.add(repositorioAluno.getAllAlunos().getLast());
                 popup("/view/ExitoView.fxml", "CadastrarAluno falhou");
             }

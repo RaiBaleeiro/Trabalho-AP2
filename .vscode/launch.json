@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "Trabalho-AP2_8831cae8"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
@@ -16,7 +23,7 @@
             "request": "launch",
             "mainClass": "utils.App",
             "projectName": "Trabalho-AP2_8831cae8",
-            "vmArgs": "--module-path C:\\Users\\Cliente\\Downloads\\javafx-sdk-23.0.1\\lib --add-modules javafx.controls,javafx.fxml",
-        },
+            "vmArgs": "--module-path C:\\Users\\Cliente\\Downloads\\javafx-sdk-23.0.1\\lib --add-modules javafx.controls,javafx.fxml"
+        }
     ]
 }

@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0">
          <image>
-            <Image url="@../img/aluno.png" />
+            <Image url="@../img/home.png" />
          </image>
       </ImageView>
       <TextField fx:id="textFieldPesquisarAluno" prefHeight="25.0" prefWidth="409.0" promptText="Pesquisa" AnchorPane.rightAnchor="0.0" />

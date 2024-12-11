@@ -3,15 +3,22 @@ package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javax.swing.JOptionPane;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.util.Callback;
 import model.Aluno;
 import utils.RepositorioAluno;
 
@@ -31,6 +38,7 @@ public class AlunoController extends MainController {
 
     private RepositorioAluno repositorioAluno = new RepositorioAluno();
     private ObservableList<Aluno> alunos = FXCollections.observableArrayList();
+    private FichaController fichaController = new FichaController();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -40,6 +48,31 @@ public class AlunoController extends MainController {
         tableColumnAlunoCpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
 
         alunos.addAll(repositorioAluno.getAllAlunos());
+
+        //Permite abrir um aluno pela tabela com duplo clique
+        tableAluno.setRowFactory( new Callback<TableView<Aluno>, TableRow<Aluno>>() {
+            @Override
+            public TableRow<Aluno> call(TableView<Aluno> tableView) {
+                final TableRow<Aluno> row = new TableRow<>();
+                row.setOnMouseClicked(new EventHandler<MouseEvent>(){
+                    @Override
+                    public void handle(MouseEvent event) {
+                        if (event.getClickCount() == 2 && !row.isEmpty()) {
+                            Aluno aluno = row.getItem();
+                            JOptionPane.showMessageDialog(
+                                null,
+                                fichaController.toString(aluno) + 
+                                "\n\nTreino do dia\n-------------------------------\n" + aluno.getTreino(),
+                                aluno.getNome(),
+                                1
+                            );
+                        }
+                    }
+                });
+                return row;
+            }
+        });
+        
 
         //Adiciona a lista inteira à lista filtrada
         FilteredList<Aluno> filteredData = new FilteredList<>(alunos, b -> true);

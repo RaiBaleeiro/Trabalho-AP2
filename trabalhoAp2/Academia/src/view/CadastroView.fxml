@@ -38,13 +38,15 @@
                <Label text="Peso(kg)" GridPane.rowIndex="2" textFill="#ffffff"/>
                <Label text="Altura(cm)" GridPane.rowIndex="3" textFill="#ffffff"/>
                <Label text="Plano" GridPane.rowIndex="4" textFill="#ffffff"/>
-               <Label text="CPF" GridPane.rowIndex="5" textFill="#ffffff"/>
+               <Label text="Nível" GridPane.rowIndex="5" textFill="#ffffff"/>
+               <Label text="CPF" GridPane.rowIndex="6" textFill="#ffffff"/>
                <TextField fx:id="textFieldNomeAluno" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                <TextField fx:id="textFieldIdadeAluno" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                <TextField fx:id="textFieldPesoAluno" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                <TextField fx:id="textFieldAlturaAluno" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                <ChoiceBox fx:id="textFieldPlanoAluno" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-               <TextField fx:id="textFieldCpfAluno" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+               <ChoiceBox fx:id="textFieldNivelAluno" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+               <TextField fx:id="textFieldCpfAluno" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             </children>
          </GridPane>
          <Button fx:id="buttonCadastarAluno" layoutX="340.0" layoutY="204.0" mnemonicParsing="false" onAction="#handleCadastrarAluno" text="Cadastrar" AnchorPane.bottomAnchor="30.0" />
